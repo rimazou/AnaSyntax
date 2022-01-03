@@ -169,7 +169,7 @@ expression_booleenne: Expbool{
                     }
 
 ExpBool:
-                | TOKEN_ID { $$=$1 } //verifier si la variable est une variable booleen dans l'analyse semantique
+                | variable { $$=$1 } //verifier si la variable est une variable booleen dans l'analyse semantique
                 | TOKEN_FALSE { $$=$1; }
                 | TOKEN_TRUE  { $$=$1; }
                 | PARENTHESE_G ExpBool PARENTHESE_DROITE { $$=$1; }
@@ -186,7 +186,7 @@ Comparaison:
                 | comparable TOKEN_INFEGAL comparable { $$=($$1<=$$3) }
                 ;
 comparable:
-                 | TOKEN_ID // since ya pas de traitement il prendra par defaut $1
+                 | variable // since ya pas de traitement il prendra par defaut $1
                  | CHAR
                  | NUM
                  ;
